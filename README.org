@@ -1,0 +1,30 @@
+#+TITLE: execline layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../css/readtheorg.css" />
+
+* Table of Contents                                        :TOC_4_org:noexport:
+ - [[Description][Description]]
+   - [[Features][Features]]
+ - [[Install][Install]]
+ - [[Key bindings][Key bindings]]
+
+* Description
+This layer aims to support [[http://skarnet.org/software/execline/index.html][execline]] scripts development in Spacemacs.
+
+** Features
+
+- auto-completion using [[https://github.com/elebihan/company-execline/][company-execline]]
+
+* Install
+To use this contribution add it to your =~/.spacemacs=
+
+#+begin_src emacs-lisp
+  (setq-default dotspacemacs-configuration-layers '(execline))
+#+end_src
+
+* Key bindings
+
+| Key Binding   | Description                        |
+|---------------+------------------------------------|
+| ~<SPC> m e b~ | Execute entire buffer as script    |
+| ~<SPC> m e r~ | Execute delimited region as script |
+| ~<SPC> m e s~ | Execute string as script           |
