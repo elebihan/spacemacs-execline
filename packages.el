@@ -23,7 +23,8 @@
     (company-execline :location (recipe
                                  :fetcher github
                                  :repo "elebihan/company-execline"
-                                 :branch "master"))
+                                 :branch "master")
+                      :toggle (configuration-layer/layer-usedp 'company))
     ))
 
 (defun execline/init-execline-mode ()
@@ -36,16 +37,13 @@
         "er" 'execline-execute-region
         "es" 'execline-execute-string))))
 
-(when (configuration-layer/layer-usedp 'auto-completion)
-  (defun execline/init-company-execline ()
-    (use-package company-execline
-    :if (configuration-layer/package-usedp 'company)
+(defun execline/init-company-execline ()
+  (use-package company-execline
     :defer t
     :init
-    (push 'company-execline company-backends-execline-mode))))
+    (push 'company-execline company-backends-execline-mode)))
 
-(when (configuration-layer/package-usedp 'company)
-  (defun execline/post-init-execline-mode ()
-    (spacemacs|add-company-hook execline-mode)))
+(defun execline/post-init-company ()
+  (spacemacs|add-company-hook execline-mode))
 
 ;;; packages.el ends here
