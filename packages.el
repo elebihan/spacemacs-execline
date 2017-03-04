@@ -24,7 +24,7 @@
                                  :fetcher github
                                  :repo "elebihan/company-execline"
                                  :branch "master")
-                      :toggle (configuration-layer/layer-usedp 'company))
+                      :toggle (configuration-layer/package-usedp 'company))
     ))
 
 (defun execline/init-execline-mode ()
